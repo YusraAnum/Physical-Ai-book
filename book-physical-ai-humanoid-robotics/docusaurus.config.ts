@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://YusraAnum.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  // For GitHub pages deployment, it is '/<projectName>/'
+  baseUrl: '/Physical-Ai-book/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'book-physical-ai-humanoid-robotics', // Usually your repo name.
+  organizationName: 'YusraAnum', // Usually your GitHub org/user name.
+  projectName: 'Physical-Ai-book', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -44,7 +44,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/your-username/book-physical-ai-humanoid-robotics/tree/main/',
+            'https://github.com/YusraAnum/Physical-Ai-book/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -55,7 +55,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/your-username/book-physical-ai-humanoid-robotics/tree/main/',
+            'https://github.com/YusraAnum/Physical-Ai-book/tree/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -88,7 +88,7 @@ const config: Config = {
           label: 'Book Chapters',
         },
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/YusraAnum/Physical-Ai-book',
           label: 'GitHub',
           position: 'right',
         },
@@ -132,7 +132,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/YusraAnum/Physical-Ai-book',
             },
           ],
         },
