@@ -1,0 +1,238 @@
+/**
+ * Typography styling for Physical AI & Humanoid Robotics textbook
+ * Implements Orbitron, Poppins, Inter, and JetBrains Mono fonts
+ */
+
+/* Import fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* JetBrains Mono for code blocks */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* Apply fonts to various elements */
+.hero__title,
+.docusaurus-markdown h1,
+.docusaurus-markdown h2,
+.docusaurus-markdown h3,
+.docusaurus-markdown h4,
+.docusaurus-markdown h5,
+.docusaurus-markdown h6 {
+  font-family: 'Orbitron', 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+/* Headings with specific styling */
+.docusaurus-markdown h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: #8B5CF6; /* Neon purple */
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.docusaurus-markdown h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+  color: #A78BFA; /* Lighter purple */
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+
+.docusaurus-markdown h3 {
+  font-size: 1.75rem;
+  line-height: 1.35;
+  color: #C4B5FD; /* Even lighter purple */
+  margin-bottom: 1.1rem;
+  font-weight: 600;
+}
+
+.docusaurus-markdown h4 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: #E5E7EB; /* Light gray */
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.docusaurus-markdown h5 {
+  font-size: 1.25rem;
+  line-height: 1.45;
+  color: #E5E7EB;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.docusaurus-markdown h6 {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #E5E7EB;
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+}
+
+/* Body text */
+.docusaurus-markdown p,
+.docusaurus-markdown li,
+.docusaurus-markdown td,
+.docusaurus-markdown th {
+  font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #E5E7EB; /* Light gray for readability */
+}
+
+/* Code typography */
+code {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background-color: rgba(31, 41, 55, 0.5); /* Dark background for code */
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  color: #38BDF8; /* Electric blue for code */
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  color: inherit;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+pre {
+  background-color: #1F2937; /* Dark card background */
+  border: 1px solid #374151; /* Dark border */
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow: auto;
+  color: #E5E7EB;
+}
+
+/* Blockquotes with special styling */
+blockquote {
+  font-family: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+  font-style: italic;
+  border-left: 3px solid #22D3EE; /* Soft cyan accent */
+  background-color: rgba(34, 211, 238, 0.05);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 4px 4px 0;
+  color: #D1D5DB; /* Slightly lighter gray */
+}
+
+/* Links */
+.docusaurus-markdown a {
+  color: #38BDF8; /* Electric blue */
+  text-decoration: none;
+  position: relative;
+}
+
+.docusaurus-markdown a:hover {
+  color: #22D3EE; /* Soft cyan */
+  text-decoration: underline;
+}
+
+/* Enhanced accessibility typography */
+/* Larger font sizes for better readability */
+.menu__list-item-collapsible > a,
+.menu__link {
+  font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #E5E7EB;
+}
+
+/* Footer typography */
+.footer {
+  font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.footer__title {
+  font-family: 'Orbitron', 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #8B5CF6; /* Neon purple */
+}
+
+/* Table typography */
+.table {
+  font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.table thead th {
+  font-weight: 600;
+  color: #E5E7EB;
+}
+
+.table tbody td {
+  color: #D1D5DB; /* Slightly muted for body text */
+}
+
+/* Card typography */
+.card {
+  font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+.card__header h3,
+.card__header h4 {
+  font-family: 'Orbitron', 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+  color: #E5E7EB;
+  margin-bottom: 0.5rem;
+}
+
+.card__body {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #D1D5DB;
+}
+
+/* Button typography */
+.button {
+  font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+}
+
+/* Navigation typography */
+.navbar__title {
+  font-family: 'Orbitron', 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #8B5CF6; /* Neon purple */
+}
+
+.navbar__link {
+  font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #E5E7EB;
+}
+
+/* Breadcrumb typography */
+.breadcrumbs__link {
+  font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+  font-size: 0.875rem;
+  color: #9CA3AF; /* Muted text */
+}
+
+/* Better contrast for accessibility */
+.docusaurus-markdown strong,
+.docusaurus-markdown b {
+  color: #F3F4F6; /* Brighter for emphasis */
+  font-weight: 700;
+}
+
+.docusaurus-markdown em,
+.docusaurus-markdown i {
+  color: #D1D5DB;
+  font-style: italic;
+}

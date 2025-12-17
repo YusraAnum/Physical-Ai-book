@@ -1,0 +1,74 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Introduction": {
+    "message": "Introduction",
+    "description": "The label for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Module 1: Fundamentals of ROS 2": {
+    "message": "Module 1: Fundamentals of ROS 2",
+    "description": "The label for category 'Module 1: Fundamentals of ROS 2' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Chapter 1: Introduction to ROS 2": {
+    "message": "Chapter 1: Introduction to ROS 2",
+    "description": "The label for category 'Chapter 1: Introduction to ROS 2' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Chapter 2: Core Communication Primitives": {
+    "message": "Chapter 2: Core Communication Primitives",
+    "description": "The label for category 'Chapter 2: Core Communication Primitives' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Chapter 3: Advanced Communication Concepts": {
+    "message": "Chapter 3: Advanced Communication Concepts",
+    "description": "The label for category 'Chapter 3: Advanced Communication Concepts' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Module 2: ROS 2 in Practice": {
+    "message": "Module 2: ROS 2 in Practice",
+    "description": "The label for category 'Module 2: ROS 2 in Practice' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Chapter 1: Python-ROS Integration": {
+    "message": "Chapter 1: Python-ROS Integration",
+    "description": "The label for category 'Chapter 1: Python-ROS Integration' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Chapter 2: Robot Modeling and Control": {
+    "message": "Chapter 2: Robot Modeling and Control",
+    "description": "The label for category 'Chapter 2: Robot Modeling and Control' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Module 3: The AI-Robot Brain (NVIDIA Isaac™)": {
+    "message": "Module 3: The AI-Robot Brain (NVIDIA Isaac™)",
+    "description": "The label for category 'Module 3: The AI-Robot Brain (NVIDIA Isaac™)' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Chapter 1: Isaac Sim Simulation Coverage": {
+    "message": "Chapter 1: Isaac Sim Simulation Coverage",
+    "description": "The label for category 'Chapter 1: Isaac Sim Simulation Coverage' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Chapter 2: Isaac ROS Perception": {
+    "message": "Chapter 2: Isaac ROS Perception",
+    "description": "The label for category 'Chapter 2: Isaac ROS Perception' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Chapter 3: Nav2 Navigation for Humanoids": {
+    "message": "Chapter 3: Nav2 Navigation for Humanoids",
+    "description": "The label for category 'Chapter 3: Nav2 Navigation for Humanoids' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Module 4: Vision-Language-Action (VLA) Systems": {
+    "message": "Module 4: Vision-Language-Action (VLA) Systems",
+    "description": "The label for category 'Module 4: Vision-Language-Action (VLA) Systems' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Chapter 1: Voice-to-Action Pipelines": {
+    "message": "Chapter 1: Voice-to-Action Pipelines",
+    "description": "The label for category 'Chapter 1: Voice-to-Action Pipelines' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Chapter 2: Cognitive Planning with LLMs": {
+    "message": "Chapter 2: Cognitive Planning with LLMs",
+    "description": "The label for category 'Chapter 2: Cognitive Planning with LLMs' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Chapter 3: Capstone - Autonomous Humanoid": {
+    "message": "Chapter 3: Capstone - Autonomous Humanoid",
+    "description": "The label for category 'Chapter 3: Capstone - Autonomous Humanoid' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.doc.References": {
+    "message": "References",
+    "description": "The label for the doc item 'References' in sidebar 'tutorialSidebar', linking to the doc references"
+  }
+}

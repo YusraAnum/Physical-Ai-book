@@ -1,0 +1,407 @@
+/**
+ * Component-specific styling for Physical AI & Humanoid Robotics textbook
+ * Custom components for definitions, examples, and case studies
+ */
+
+/* Definition card styling */
+.card--definition {
+  border-left: 3px solid #8B5CF6; /* Neon purple */
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.05) 0%, rgba(31, 41, 55, 0.8) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.card--definition::before {
+  content: "🤖";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  opacity: 0.3;
+}
+
+.card--definition .card__header {
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.card--definition .card__header h3 {
+  color: #8B5CF6;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card--definition .card__header h3::before {
+  content: "🤖";
+  margin-right: 0.5rem;
+}
+
+/* Example card styling */
+.card--example {
+  border-left: 3px solid #38BDF8; /* Electric blue */
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0.05) 0%, rgba(31, 41, 55, 0.8) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.card--example::before {
+  content: "🧠";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  opacity: 0.3;
+}
+
+.card--example .card__header {
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.card--example .card__header h3 {
+  color: #38BDF8;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card--example .card__header h3::before {
+  content: "🧠";
+  margin-right: 0.5rem;
+}
+
+/* Case study card styling */
+.card--case-study {
+  border-left: 3px solid #22D3EE; /* Soft cyan */
+  background: linear-gradient(90deg, rgba(34, 211, 238, 0.05) 0%, rgba(31, 41, 55, 0.8) 100%);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.card--case-study::before {
+  content: "⚙️";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  opacity: 0.3;
+}
+
+.card--case-study .card__header {
+  border-bottom: 1px solid rgba(34, 211, 238, 0.2);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.card--case-study .card__header h3 {
+  color: #22D3EE;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card--case-study .card__header h3::before {
+  content: "⚙️";
+  margin-right: 0.5rem;
+}
+
+/* Icon styling */
+.icon--robotics {
+  color: #8B5CF6;
+  font-weight: bold;
+}
+
+.icon--ai {
+  color: #38BDF8;
+  font-weight: bold;
+}
+
+.icon--hardware {
+  color: #22D3EE;
+  font-weight: bold;
+}
+
+/* Section dividers */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #22D3EE, transparent);
+  margin: 2rem 0;
+  border: none;
+}
+
+.section-divider--alt {
+  height: 2px;
+  background: linear-gradient(to right, transparent, #8B5CF6, #38BDF8, transparent);
+  margin: 2rem 0;
+  border: none;
+  opacity: 0.6;
+}
+
+/* Image styling with neon borders */
+.image--neon-border {
+  border: 2px solid #8B5CF6;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+  transition: all 0.3s ease;
+}
+
+.image--neon-border:hover {
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.8);
+  transform: scale(1.02);
+}
+
+.image--neon-border--blue {
+  border: 2px solid #38BDF8;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+.image--neon-border--blue:hover {
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.8);
+}
+
+.image--neon-border--cyan {
+  border: 2px solid #22D3EE;
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.5);
+}
+
+.image--neon-border--cyan:hover {
+  box-shadow: 0 0 25px rgba(34, 211, 238, 0.8);
+}
+
+/* Custom button styles */
+.button--neon {
+  position: relative;
+  overflow: hidden;
+  background: #8B5CF6;
+  border: 1px solid #8B5CF6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.button--neon:hover {
+  background: #A78BFA;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.7);
+  transform: translateY(-2px);
+}
+
+.button--neon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.button--neon:hover::before {
+  left: 100%;
+}
+
+/* Custom navigation styles */
+.navbar-sidebar-hamburger {
+  color: #8B5CF6;
+}
+
+.navbar-sidebar-hamburger span {
+  background: #8B5CF6;
+}
+
+/* Custom table styles */
+.table--enhanced {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  background: rgba(31, 41, 55, 0.8);
+  border: 1px solid #374151;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.table--enhanced th {
+  background-color: rgba(139, 92, 246, 0.1);
+  color: #E5E7EB;
+  font-weight: 600;
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 2px solid #8B5CF6;
+}
+
+.table--enhanced td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #374151;
+  color: #D1D5DB;
+}
+
+.table--enhanced tr:last-child td {
+  border-bottom: none;
+}
+
+/* Custom code block styles */
+.code-block--enhanced {
+  background: #1F2937;
+  border: 1px solid #374151;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow: auto;
+  position: relative;
+}
+
+.code-block--enhanced::before {
+  content: 'CODE';
+  position: absolute;
+  top: 0.25rem;
+  right: 0.5rem;
+  font-size: 0.75rem;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Custom blockquote styles */
+.blockquote--enhanced {
+  position: relative;
+  padding: 1.5rem 1.5rem 1.5rem 3rem;
+  margin: 1.5rem 0;
+  background: rgba(31, 41, 55, 0.6);
+  border-left: 4px solid #22D3EE;
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: italic;
+  color: #D1D5DB;
+}
+
+.blockquote--enhanced::before {
+  content: '""';
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 3rem;
+  color: rgba(34, 211, 238, 0.2);
+  font-family: serif;
+}
+
+.blockquote--enhanced::after {
+  content: '""';
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1rem;
+  font-size: 3rem;
+  color: rgba(34, 211, 238, 0.2);
+  font-family: serif;
+  transform: rotate(180deg);
+}
+
+/* Custom alert styles */
+.alert--definition {
+  border-left-color: #8B5CF6;
+  background-color: rgba(139, 92, 246, 0.05);
+}
+
+.alert--example {
+  border-left-color: #38BDF8;
+  background-color: rgba(56, 189, 248, 0.05);
+}
+
+.alert--case-study {
+  border-left-color: #22D3EE;
+  background-color: rgba(34, 211, 238, 0.05);
+}
+
+/* Custom badge styles */
+.badge--neon {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.5rem;
+  background-color: #8B5CF6;
+  color: white;
+}
+
+.badge--neon--blue {
+  background-color: #38BDF8;
+}
+
+.badge--neon--cyan {
+  background-color: #22D3EE;
+}
+
+/* Custom progress bar */
+.progress-bar {
+  height: 0.5rem;
+  background-color: #374151;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, #8B5CF6, #38BDF8);
+  transition: width 0.3s ease;
+}
+
+/* Custom tooltip */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted #9CA3AF;
+  cursor: help;
+}
+
+.tooltip .tooltip__text {
+  visibility: hidden;
+  width: 200px;
+  background-color: #1F2937;
+  color: #E5E7EB;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  border: 1px solid #374151;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip:hover .tooltip__text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip__text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #1F2937 transparent transparent transparent;
+}

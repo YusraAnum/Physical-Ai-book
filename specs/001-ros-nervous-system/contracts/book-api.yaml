@@ -1,0 +1,338 @@
+# Book Content API Contract
+
+**Feature**: Technical Book Built with Docusaurus
+**Branch**: 001-ros-nervous-system
+**Date**: 2025-12-15
+**Version**: 1.0.0
+
+## Overview
+
+This contract defines the API interfaces for the "ROS 2 as a Robotic Nervous System" technical book application. The API provides access to book content, search functionality, and user interaction features.
+
+## Base URL
+
+```
+https://api.ros-book.example.com/v1
+```
+
+## Common Headers
+
+All requests must include the following headers:
+
+```
+Content-Type: application/json
+Accept: application/json
+User-Agent: ros-book-client/1.0
+```
+
+## Endpoints
+
+### GET /book/info
+
+Retrieve basic information about the book.
+
+#### Response
+
+```json
+{
+  "id": "ros-nervous-system",
+  "title": "ROS 2 as a Robotic Nervous System",
+  "subtitle": "A Technical Guide for Humanoid Robotics",
+  "version": "1.0.0",
+  "authors": ["Author Name"],
+  "description": "A comprehensive guide to ROS 2 middleware for humanoid robotics applications",
+  "target_audience": "Undergraduate CS/Robotics students and early-stage robotics developers",
+  "total_word_count": 2500,
+  "chapters_count": 3,
+  "estimated_reading_time": 120,
+  "publication_date": "2025-12-15",
+  "last_updated": "2025-12-15T10:30:00Z"
+}
+```
+
+### GET /book/chapters
+
+Retrieve a list of all chapters in the book.
+
+#### Query Parameters
+
+- `limit` (optional): Maximum number of chapters to return
+- `offset` (optional): Number of chapters to skip
+
+#### Response
+
+```json
+{
+  "chapters": [
+    {
+      "id": "chapter-1",
+      "title": "ROS 2 as Middleware",
+      "position": 1,
+      "word_count": 850,
+      "sections_count": 3,
+      "estimated_reading_time": 35,
+      "difficulty_level": "beginner",
+      "learning_objectives": [
+        "Understand the concept of middleware in robotics",
+        "Explain the role of ROS 2 in humanoid robot control",
+        "Compare nodes-based architecture vs monolithic systems"
+      ]
+    },
+    {
+      "id": "chapter-2",
+      "title": "Core Communication Primitives",
+      "position": 2,
+      "word_count": 900,
+      "sections_count": 3,
+      "estimated_reading_time": 38,
+      "difficulty_level": "intermediate",
+      "learning_objectives": [
+        "Differentiate between ROS 2 Nodes, Topics, and Services",
+        "Understand message passing and real-time considerations",
+        "Explain control signal flow between components"
+      ]
+    },
+    {
+      "id": "chapter-3",
+      "title": "Python-ROS Integration & Robot Modeling",
+      "position": 3,
+      "word_count": 750,
+      "sections_count": 3,
+      "estimated_reading_time": 32,
+      "difficulty_level": "intermediate",
+      "learning_objectives": [
+        "Bridge Python agents with ROS controllers using rclpy",
+        "Understand URDF (Unified Robot Description Format)",
+        "Model humanoid structure and joints conceptually"
+      ]
+    }
+  ],
+  "total_count": 3
+}
+```
+
+### GET /book/chapters/{chapterId}
+
+Retrieve detailed information about a specific chapter.
+
+#### Path Parameters
+
+- `chapterId`: The ID of the chapter to retrieve
+
+#### Response
+
+```json
+{
+  "id": "chapter-1",
+  "title": "ROS 2 as Middleware",
+  "position": 1,
+  "subtitle": "Understanding the Foundation",
+  "word_count": 850,
+  "estimated_reading_time": 35,
+  "difficulty_level": "beginner",
+  "prerequisites": [
+    "Basic understanding of robotics concepts",
+    "Familiarity with distributed systems"
+  ],
+  "learning_objectives": [
+    "Understand the concept of middleware in robotics",
+    "Explain the role of ROS 2 in humanoid robot control",
+    "Compare nodes-based architecture vs monolithic systems"
+  ],
+  "sections": [
+    {
+      "id": "middleware-concept",
+      "title": "Middleware Concept in Robotics",
+      "position": 1,
+      "type": "conceptual",
+      "word_count": 280,
+      "content_preview": "Middleware in robotics serves as a communication layer..."
+    },
+    {
+      "id": "ros2-role",
+      "title": "Role of ROS 2 in Humanoid Robot Control",
+      "position": 2,
+      "type": "technical",
+      "word_count": 320,
+      "content_preview": "ROS 2 plays a crucial role in humanoid robot control by..."
+    },
+    {
+      "id": "architecture-comparison",
+      "title": "Nodes-Based vs Monolithic Architecture",
+      "position": 3,
+      "type": "comparative",
+      "word_count": 250,
+      "content_preview": "Comparing the advantages of nodes-based architecture..."
+    }
+  ],
+  "references_count": 5,
+  "figures_count": 2,
+  "code_examples_count": 0
+}
+```
+
+### GET /book/sections/{sectionId}
+
+Retrieve the full content of a specific section.
+
+#### Path Parameters
+
+- `sectionId`: The ID of the section to retrieve (format: `{chapterId}/{sectionName}`)
+
+#### Response
+
+```json
+{
+  "id": "chapter-1/middleware-concept",
+  "title": "Middleware Concept in Robotics",
+  "chapter_id": "chapter-1",
+  "chapter_title": "ROS 2 as Middleware",
+  "position": 1,
+  "type": "conceptual",
+  "word_count": 280,
+  "estimated_reading_time": 12,
+  "content": "# Middleware Concept in Robotics\n\nMiddleware in robotics serves as a communication layer that enables different software components to interact seamlessly. In the context of humanoid robotics...",
+  "figures": [
+    {
+      "id": "middleware-architecture",
+      "title": "Middleware Architecture in Robotics",
+      "description": "Diagram showing how middleware connects different robot components",
+      "url": "/img/middleware-architecture.svg",
+      "alt_text": "Architecture diagram showing middleware connecting sensors, controllers, and actuators"
+    }
+  ],
+  "code_examples": [],
+  "references": [
+    {
+      "id": "ros2-design",
+      "type": "documentation",
+      "author": "Open Robotics",
+      "title": "ROS 2 Design",
+      "year": 2023,
+      "url": "https://design.ros2.org/",
+      "apa_citation": "Open Robotics. (2023). ROS 2 design. https://design.ros2.org/"
+    }
+  ],
+  "learning_outcomes": [
+    "Define middleware in the context of robotics",
+    "Explain the purpose of middleware in distributed robotic systems"
+  ]
+}
+```
+
+### GET /book/search
+
+Search for content within the book.
+
+#### Query Parameters
+
+- `q` (required): Search query
+- `limit` (optional): Maximum number of results to return (default: 10, max: 50)
+- `offset` (optional): Number of results to skip
+- `type` (optional): Filter by content type (section, figure, code_example)
+
+#### Response
+
+```json
+{
+  "query": "Nodes",
+  "total_results": 5,
+  "results": [
+    {
+      "id": "chapter-2/nodes-topics-services",
+      "type": "section",
+      "title": "Nodes, Topics, and Services",
+      "chapter": "Chapter 2: Core Communication Primitives",
+      "relevance_score": 0.95,
+      "preview": "ROS 2 provides three primary communication mechanisms: Nodes, Topics, and Services...",
+      "url": "/docs/chapter-2/nodes-topics-services"
+    },
+    {
+      "id": "chapter-3/python-ros-integration",
+      "type": "section",
+      "title": "Python-ROS Integration",
+      "chapter": "Chapter 3: Python-ROS Integration & Robot Modeling",
+      "relevance_score": 0.78,
+      "preview": "Integrating Python agents with ROS controllers requires understanding how nodes communicate...",
+      "url": "/docs/chapter-3/python-ros-integration"
+    }
+  ]
+}
+```
+
+### GET /book/references
+
+Retrieve all references used in the book.
+
+#### Query Parameters
+
+- `limit` (optional): Maximum number of references to return
+- `offset` (optional): Number of references to skip
+- `year_from` (optional): Filter references from this year onwards
+- `year_to` (optional): Filter references up to this year
+- `type` (optional): Filter by reference type
+
+#### Response
+
+```json
+{
+  "references": [
+    {
+      "id": "ros2-design",
+      "type": "documentation",
+      "author": "Open Robotics",
+      "title": "ROS 2 Design",
+      "year": 2023,
+      "publisher": "Open Robotics",
+      "url": "https://design.ros2.org/",
+      "apa_citation": "Open Robotics. (2023). ROS 2 design. https://design.ros2.org/"
+    },
+    {
+      "id": "sherhod-2023",
+      "type": "journal_article",
+      "author": "Sherhod, M., et al.",
+      "title": "Humanoid Robot Control Using ROS 2",
+      "year": 2023,
+      "publisher": "IEEE Robotics and Automation Letters",
+      "page_numbers": "1234-1241",
+      "doi": "10.1109/LRA.2023.1234567",
+      "apa_citation": "Sherhod, M., et al. (2023). Humanoid robot control using ROS 2. IEEE Robotics and Automation Letters, 8(2), 1234-1241."
+    }
+  ],
+  "total_count": 12
+}
+```
+
+## Error Responses
+
+All error responses follow this format:
+
+```json
+{
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "Human-readable error message",
+    "details": "Additional details about the error"
+  }
+}
+```
+
+### Common Error Codes
+
+- `NOT_FOUND`: Resource does not exist
+- `INVALID_PARAMETER`: Invalid or missing parameter
+- `RATE_LIMITED`: Rate limit exceeded
+- `INTERNAL_ERROR`: Internal server error
+
+## Rate Limiting
+
+- 100 requests per minute per IP address
+- 1000 requests per hour per IP address
+
+## Versioning
+
+This API follows semantic versioning. The version is included in the URL path (`/v1/`). Breaking changes will result in a new version number.
+
+## Authentication
+
+This API is publicly accessible and does not require authentication for reading content. Authentication may be required for future interactive features.

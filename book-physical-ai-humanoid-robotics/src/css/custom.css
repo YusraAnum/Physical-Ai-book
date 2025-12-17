@@ -1,0 +1,351 @@
+/**
+ * Custom CSS for Physical AI & Humanoid Robotics textbook
+ * Dark futuristic theme with neon accents
+ */
+
+/* Import additional stylesheets */
+@import url('typography.css');
+@import url('animations.css');
+@import url('components.css');
+
+/* Theme color variables */
+:root {
+  --ifm-color-primary: #8B5CF6; /* Neon purple */
+  --ifm-color-primary-dark: #7C3AED;
+  --ifm-color-primary-darker: #6D28D9;
+  --ifm-color-primary-darkest: #5B21B6;
+  --ifm-color-primary-light: #A78BFA;
+  --ifm-color-primary-lighter: #C4B5FD;
+  --ifm-color-primary-lightest: #DDD6FE;
+  --ifm-color-secondary: #38BDF8; /* Electric blue */
+  --ifm-color-accent-glow: #22D3EE; /* Soft cyan */
+  --ifm-color-background-start: #0B0F1A;
+  --ifm-color-background-end: #111827;
+  --ifm-color-text-primary: #E5E7EB; /* Light gray */
+  --ifm-color-text-muted: #9CA3AF; /* Muted text */
+  --ifm-color-card-bg: #1F2937; /* Dark card background */
+  --ifm-color-border: #374151; /* Dark border */
+}
+
+/* Dark theme overrides */
+[data-theme='dark'] {
+  --ifm-color-primary: #8B5CF6;
+  --ifm-color-primary-dark: #7C3AED;
+  --ifm-color-primary-darker: #6D28D9;
+  --ifm-color-primary-darkest: #5B21B6;
+  --ifm-color-primary-light: #A78BFA;
+  --ifm-color-primary-lighter: #C4B5FD;
+  --ifm-color-primary-lightest: #DDD6FE;
+  --ifm-color-secondary: #38BDF8;
+  --ifm-color-accent-glow: #22D3EE;
+  --ifm-color-background-start: #0B0F1A;
+  --ifm-color-background-end: #111827;
+  --ifm-color-text-primary: #E5E7EB;
+  --ifm-color-text-muted: #9CA3AF;
+  --ifm-color-card-bg: #1F2937;
+  --ifm-color-border: #374151;
+}
+
+/* Apply gradient background */
+html {
+  background: linear-gradient(135deg, var(--ifm-color-background-start) 0%, var(--ifm-color-background-end) 100%);
+}
+
+/* Basic body styling */
+body {
+  background: linear-gradient(135deg, var(--ifm-color-background-start) 0%, var(--ifm-color-background-end) 100%);
+  color: var(--ifm-color-text-primary);
+  transition: background-color 0.3s ease;
+}
+
+/* Enhanced typography */
+.hero__title {
+  font-family: 'Orbitron', 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+/* Card styling with neon borders */
+.card {
+  background-color: var(--ifm-color-card-bg);
+  border: 1px solid var(--ifm-color-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for cards */
+.card:hover {
+  border-color: var(--ifm-color-accent-glow);
+  box-shadow: 0 10px 25px -5px rgba(34, 211, 238, 0.2), 0 8px 10px -6px rgba(34, 211, 238, 0.2);
+}
+
+/* Neon glow for interactive elements */
+.button--primary {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.button--primary:hover {
+  background-color: var(--ifm-color-primary-light);
+  border-color: var(--ifm-color-primary-light);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+}
+
+/* Section dividers with neon lines */
+hr {
+  border-top: 1px solid var(--ifm-color-accent-glow);
+  opacity: 0.3;
+}
+
+/* Improved contrast for accessibility */
+.menu__list-item-collapsible > a,
+.menu__link {
+  color: var(--ifm-color-text-primary);
+}
+
+/* Footer styling */
+.footer {
+  background-color: #1F2937;
+  border-top: 1px solid var(--ifm-color-primary);
+  border-image: linear-gradient(to right, transparent, var(--ifm-color-primary), transparent) 1;
+}
+
+/* Navigation styling */
+.navbar {
+  background-color: rgba(11, 15, 26, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* Search bar styling */
+.navbar__search-input {
+  background-color: var(--ifm-color-card-bg);
+  border: 1px solid var(--ifm-color-border);
+  border-radius: 4px;
+  color: var(--ifm-color-text-primary);
+}
+
+/* Table styling */
+.table {
+  background-color: var(--ifm-color-card-bg);
+  border: 1px solid var(--ifm-color-border);
+}
+
+/* Improved contrast for all text */
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  color: var(--ifm-color-text-primary);
+}
+
+.markdown p,
+.markdown li,
+.markdown td,
+.markdown th {
+  color: var(--ifm-color-text-primary);
+}
+
+/* Link styling */
+.markdown a {
+  color: var(--ifm-color-secondary);
+}
+
+.markdown a:hover {
+  color: var(--ifm-color-accent-glow);
+  text-decoration: underline;
+}
+
+/* Blockquote styling */
+blockquote {
+  border-left: 3px solid var(--ifm-color-accent-glow);
+  background-color: rgba(34, 211, 238, 0.05);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Landing page specific styles */
+.landing-page {
+  width: 100%;
+}
+
+.features-section {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(17, 24, 39, 0.8) 100%);
+}
+
+.feature-card {
+  background-color: var(--ifm-color-card-bg);
+  border: 1px solid var(--ifm-color-border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--ifm-color-accent-glow);
+  box-shadow: 0 10px 25px -5px rgba(34, 211, 238, 0.2), 0 8px 10px -6px rgba(34, 211, 238, 0.2);
+}
+
+.chapters-section {
+  background-color: var(--ifm-color-background-start);
+}
+
+.chapters-section .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chapters-section .card h4 {
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.testimonials-section {
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.9) 0%, rgba(31, 41, 55, 0.9) 100%);
+}
+
+.testimonials-section .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonials-section .card p {
+  flex-grow: 1;
+}
+
+.cta-section {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, #7C3AED 100%);
+  color: white;
+  text-align: center;
+}
+
+.cta-section h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.cta-section .hero__subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Enhanced button styling for CTA */
+.cta-section .button--primary {
+  background-color: white;
+  color: var(--ifm-color-primary);
+  border-color: white;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+}
+
+.cta-section .button--primary:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.cta-section .button--secondary {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+}
+
+.cta-section .button--secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Avatar styling for testimonials */
+.avatar__name {
+  font-weight: 600;
+  color: var(--ifm-color-text-primary);
+}
+
+.avatar__subtitle {
+  color: var(--ifm-color-text-muted);
+}
+
+/* Section heading styling */
+.landing-page h2 {
+  font-family: 'Orbitron', 'Poppins', system-ui, -apple-system, sans-serif;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+}
+
+.landing-page .hero__subtitle {
+  text-align: center;
+  color: var(--ifm-color-text-muted);
+  font-size: 1.1rem;
+}
+
+/* Gradient backgrounds for sections */
+.section-gradient--primary {
+  background: linear-gradient(135deg, var(--ifm-color-background-start) 0%, var(--ifm-color-background-end) 100%);
+}
+
+.section-gradient--secondary {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(17, 24, 39, 0.8) 100%);
+}
+
+/* Positioning utilities */
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+/* Additional landing page enhancements */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+/* Responsive adjustments for landing page */
+@media (max-width: 996px) {
+  .hero .col--6 {
+    margin-bottom: 2rem;
+  }
+
+  .hero .col--6:last-child {
+    margin-bottom: 0;
+  }
+
+  .cta-section .col--8 {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .chapters-section .col {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Holographic overlay animation */
+@keyframes holographic-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+.holographic-overlay {
+  animation: holographic-pulse 3s ease-in-out infinite;
+}
