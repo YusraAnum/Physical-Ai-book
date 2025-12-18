@@ -1,3 +1,9 @@
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
+
+// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
 // Determine base URL based on environment
 const isVercel = process.env.DEPLOYMENT_PLATFORM === 'vercel' || process.env.VERCEL === '1';
 const isLocalhost = !isVercel && !process.env.DEPLOYMENT_PLATFORM;
@@ -8,11 +14,7 @@ const url = isVercel
   ? process.env.URL || 'https://your-project-name.vercel.app'
   : 'https://YusraAnum.github.io';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-const {themes: {github, dracula}} = require('prism-react-renderer');
-
-/** @type {import('@docusaurus/types').Config} */
-const config = {
+const config: Config = {
   title: 'ROS 2 as a Robotic Nervous System',
   tagline: 'Understanding ROS 2 for Humanoid Robotics Applications',
   favicon: 'img/favicon.ico',
@@ -73,7 +75,7 @@ const config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-      },
+      } satisfies Preset.Options,
     ],
   ],
 
@@ -149,10 +151,10 @@ const config = {
       copyright: `Copyright © ${new Date().getFullYear()} ROS 2: Robotic Nervous System Book. Built with Docusaurus.`,
     },
     prism: {
-      theme: github,
-      darkTheme: dracula,
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
     },
-  },
+  } satisfies Preset.ThemeConfig,
 };
 
-module.exports = config;
+export default config;
