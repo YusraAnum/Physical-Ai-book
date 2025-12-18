@@ -15,7 +15,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://YusraAnum.github.io',
+  url: 'https://physical-ai-book-v53v-git-main-yusraanums-projects.vercel.app/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is '/<projectName>/'
   baseUrl: '/',
