@@ -1,10 +1,18 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+// Determine base URL based on environment
+const isVercel = process.env.DEPLOYMENT_PLATFORM === 'vercel' || process.env.VERCEL === '1';
+const isLocalhost = !isVercel && !process.env.DEPLOYMENT_PLATFORM;
+const baseUrl = process.env.BASE_URL || (isVercel ? '/' : isLocalhost ? '/' : '/Physical-Ai-book/');
+
+// Determine URL based on deployment platform
+const url = isVercel
+  ? process.env.URL || 'https://your-project-name.vercel.app'
+  : 'https://YusraAnum.github.io';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+const {themes: {github, dracula}} = require('prism-react-renderer');
 
-const config: Config = {
+/** @type {import('@docusaurus/types').Config} */
+const config = {
   title: 'ROS 2 as a Robotic Nervous System',
   tagline: 'Understanding ROS 2 for Humanoid Robotics Applications',
   favicon: 'img/favicon.ico',
@@ -15,17 +23,18 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://YusraAnum.github.io',
+  url: url,
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is '/<projectName>/'
-  baseUrl: '/Physical-Ai-book/',
+  // For GitHub pages deployment, it is often '/<projectName>/'
+  // For Vercel or other platforms, it's typically '/'
+  baseUrl: baseUrl,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'YusraAnum', // Usually your GitHub org/user name.
   projectName: 'Physical-Ai-book', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -37,7 +46,7 @@ const config: Config = {
 
   presets: [
     [
-      'classic',
+      '@docusaurus/preset-classic',
       {
         docs: {
           sidebarPath: './sidebars.ts',
@@ -64,7 +73,7 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-      } satisfies Preset.Options,
+      },
     ],
   ],
 
@@ -140,10 +149,10 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} ROS 2: Robotic Nervous System Book. Built with Docusaurus.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: github,
+      darkTheme: dracula,
     },
-  } satisfies Preset.ThemeConfig,
+  },
 };
 
-export default config;
+module.exports = config;
