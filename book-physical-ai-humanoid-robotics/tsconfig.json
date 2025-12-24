@@ -1,8 +1,27 @@
 {
-  // This file is not used in compilation. It is here just for a nice editor experience.
+  // This file provides TypeScript support for editors and IDEs
+  // Docusaurus handles its own compilation process
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@site/*": ["./*"],
+      "@components/*": ["src/components/*"],
+      "@theme/*": ["src/theme/*"],
+      
+    },
+    // Additional options for better editor experience
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
   "exclude": [".docusaurus", "build"]
 }

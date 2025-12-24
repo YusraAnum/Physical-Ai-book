@@ -349,3 +349,47 @@ blockquote {
 .holographic-overlay {
   animation: holographic-pulse 3s ease-in-out infinite;
 }
+
+/* Additional animations for Hero section */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes robotFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulseCTA {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.robot-float {
+  animation: robotFloat 3s ease-in-out infinite;
+}
+
+.pulse-cta {
+  animation: pulseCTA 2s infinite;
+}

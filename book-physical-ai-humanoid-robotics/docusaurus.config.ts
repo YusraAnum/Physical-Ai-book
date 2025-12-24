@@ -15,7 +15,7 @@ const url = isVercel
   : 'https://YusraAnum.github.io';
 
 const config: Config = {
-  title: 'ROS 2 as a Robotic Nervous System',
+  title: 'Physical Ai humanoid Robotics',
   tagline: 'Understanding ROS 2 for Humanoid Robotics Applications',
   favicon: 'img/favicon.ico',
 
@@ -155,6 +155,33 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+
+  plugins: [
+    // Removed chat widget plugin as it's now integrated via Layout wrapper
+  ],
+  stylesheets: [],
+  scripts: [
+    {
+      src: '/js/text-selection.js',
+      async: true,
+      defer: true,
+    },
+  ],
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'text/javascript',
+      },
+      innerHTML: `
+        window.RAG_API_URL = '${
+          process.env.REACT_APP_API_URL ||
+          process.env.RAG_API_URL ||
+          'http://localhost:8000'
+        }';
+      `,
+    },
+  ],
 };
 
 export default config;

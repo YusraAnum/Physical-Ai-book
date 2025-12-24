@@ -1,0 +1,93 @@
+# API Contract: RAG Chat Integration
+
+## Overview
+REST API for RAG (Retrieval Augmented Generation) chat functionality. Provides endpoints for submitting queries about book content and receiving AI-generated responses.
+
+## Base URL
+`http://localhost:8000` (for local development)
+
+## Endpoints
+
+### POST /api/rag/query
+Submit a query to the RAG system and receive a response.
+
+#### Request
+```json
+{
+  "query": "What are the key principles of humanoid robotics?",
+  "context": "Optional selected text that provides context for the query",
+  "session_id": "Optional session identifier to maintain conversation context"
+}
+```
+
+#### Response (Success - 200 OK)
+```json
+{
+  "response": "The key principles of humanoid robotics include...",
+  "sources": [
+    {
+      "id": "chapter-3.2",
+      "title": "Design Principles",
+      "content": "The fundamental design principles for humanoid robots...",
+      "page_reference": "Chapter 3, Section 3.2"
+    }
+  ],
+  "status": "SUCCESS",
+  "session_id": "new or existing session identifier"
+}
+```
+
+#### Response (Error - 500 Internal Server Error)
+```json
+{
+  "response": "",
+  "sources": [],
+  "status": "ERROR",
+  "error_message": "Detailed error message for debugging",
+  "session_id": "session identifier if available"
+}
+```
+
+#### Response (Empty - 200 OK)
+```json
+{
+  "response": "",
+  "sources": [],
+  "status": "EMPTY",
+  "error_message": "No relevant content found to answer the query",
+  "session_id": "session identifier"
+}
+```
+
+#### Request Headers
+- `Content-Type: application/json`
+- `Accept: application/json`
+
+#### Validation
+- `query` is required and must be between 1 and 1000 characters
+- `context` is optional and must be between 1 and 5000 characters if provided
+- `session_id` is optional, must be a valid UUID if provided
+
+### GET /api/rag/health
+Check the health status of the RAG service.
+
+#### Response (Success - 200 OK)
+```json
+{
+  "status": "healthy",
+  "service": "RAG backend",
+  "timestamp": "2025-12-23T10:00:00Z"
+}
+```
+
+## Error Handling
+- 400 Bad Request: Invalid request parameters
+- 422 Unprocessable Entity: Validation errors
+- 500 Internal Server Error: Server-side errors
+- 503 Service Unavailable: RAG backend is temporarily unavailable
+
+## Authentication
+No authentication required for local development environment.
+
+## Rate Limiting
+No rate limiting applied for local development environment.

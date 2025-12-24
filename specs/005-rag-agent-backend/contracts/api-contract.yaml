@@ -1,0 +1,218 @@
+# OpenAPI Contract: RAG Agent Backend
+
+```yaml
+openapi: 3.0.3
+info:
+  title: RAG Agent Backend API
+  description: API for RAG-enabled question answering over book content
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: support@example.com
+
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+  - url: https://api.rag-agent.example.com
+    description: Production server
+
+paths:
+  /chat:
+    post:
+      summary: Query the RAG agent with full book content
+      description: Submit a query to the RAG agent for answers based on the full book content
+      operationId: queryFullContent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+      responses:
+        '200':
+          description: Successful response from the RAG agent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentResponse'
+        '400':
+          description: Invalid query request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /chat/selected-text:
+    post:
+      summary: Query the RAG agent with selected text only
+      description: Submit a query to the RAG agent for answers based on user-selected text segments
+      operationId: querySelectedText
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SelectedTextQueryRequest'
+      responses:
+        '200':
+          description: Successful response from the RAG agent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentResponse'
+        '400':
+          description: Invalid query request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    QueryRequest:
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          type: string
+          description: The user's question or query text
+          example: "What are the key principles of humanoid robotics?"
+        user_id:
+          type: string
+          description: Optional user identifier
+          example: "user-12345"
+      example:
+        query: "What are the key principles of humanoid robotics?"
+        user_id: "user-12345"
+
+    SelectedTextQueryRequest:
+      type: object
+      required:
+        - query
+        - document_ids
+      properties:
+        query:
+          type: string
+          description: The user's question or query text
+          example: "What does the book say about gait control?"
+        document_ids:
+          type: array
+          items:
+            type: string
+          description: List of document or text segment identifiers to search within
+          example: ["chapter-3", "section-4.2", "appendix-a"]
+        user_id:
+          type: string
+          description: Optional user identifier
+          example: "user-12345"
+      example:
+        query: "What does the book say about gait control?"
+        document_ids: ["chapter-3", "section-4.2", "appendix-a"]
+        user_id: "user-12345"
+
+    AgentResponse:
+      type: object
+      required:
+        - response_id
+        - answer
+        - sources
+        - has_sources
+      properties:
+        response_id:
+          type: string
+          description: Unique identifier for this response
+          example: "resp-67890"
+        query_id:
+          type: string
+          description: Identifier of the original query
+          example: "query-12345"
+        answer:
+          type: string
+          description: The generated answer to the user's query
+          example: "The key principles of humanoid robotics include..."
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SourceChunk'
+          description: List of document chunks that informed the response
+        has_sources:
+          type: boolean
+          description: Whether the response was generated from retrieved sources
+          example: true
+        confidence:
+          type: number
+          format: float
+          description: Confidence level of the response (0.0 to 1.0)
+          example: 0.85
+        timestamp:
+          type: string
+          format: date-time
+          description: When the response was generated
+          example: "2025-12-22T10:30:00Z"
+
+    SourceChunk:
+      type: object
+      required:
+        - chunk_id
+        - content
+        - document_id
+        - similarity_score
+      properties:
+        chunk_id:
+          type: string
+          description: Unique identifier for the document chunk
+          example: "chunk-abc123"
+        content:
+          type: string
+          description: The text content of the retrieved chunk
+          example: "Humanoid robotics is a field that combines robotics and artificial intelligence..."
+        document_id:
+          type: string
+          description: Identifier of the source document
+          example: "chapter-2"
+        similarity_score:
+          type: number
+          format: float
+          description: Similarity score from vector search (0.0 to 1.0)
+          example: 0.78
+        metadata:
+          type: object
+          description: Additional metadata about the chunk
+          example:
+            page_number: 45
+            url: "https://book.example.com/chapter-2#page-45"
+
+    ErrorResponse:
+      type: object
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: "QUERY_TOO_LONG"
+        message:
+          type: string
+          description: Human-readable error message
+          example: "Query exceeds maximum length of 2000 characters"
+        details:
+          type: object
+          description: Additional error details (optional)
+          example:
+            field: "query"
+            max_length: 2000
+```

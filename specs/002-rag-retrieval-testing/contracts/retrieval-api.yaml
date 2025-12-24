@@ -1,0 +1,165 @@
+# API Contract: RAG Retrieval Service
+
+## Overview
+This document defines the API contract for the RAG retrieval service that enables querying vector embeddings and retrieving relevant content from the book.
+
+## Base URL
+```
+http://localhost:8000/api/v1  # Default for local development
+```
+
+## Endpoints
+
+### POST /retrieval/query
+Submit a text query and retrieve semantically similar content chunks.
+
+#### Request
+```json
+{
+  "query": "string, the text query to search for relevant content",
+  "top_k": "integer, optional, number of top results to return (default: 5, max: 10)",
+  "min_score": "float, optional, minimum similarity score threshold (default: 0.5, range: 0.0-1.0)"
+}
+```
+
+#### Response
+```json
+{
+  "query": "string, the original query text",
+  "results": [
+    {
+      "id": "string, unique identifier for the retrieved chunk",
+      "content": "string, the text content of the retrieved chunk",
+      "score": "float, similarity score between 0.0 and 1.0",
+      "metadata": {
+        "url": "string, URL of the source document",
+        "chunk_id": "string, unique identifier for this specific chunk",
+        "source_title": "string, title of the source document (optional)"
+      }
+    }
+  ],
+  "query_time_ms": "float, time taken to process the query in milliseconds",
+  "total_chunks_searched": "integer, total number of chunks searched"
+}
+```
+
+#### Error Responses
+- `400 Bad Request`: Invalid request parameters
+- `422 Unprocessable Entity`: Query text missing or invalid format
+- `503 Service Unavailable`: Qdrant database unavailable
+
+#### Example Request
+```json
+{
+  "query": "Explain ROS 2 middleware concepts",
+  "top_k": 3,
+  "min_score": 0.6
+}
+```
+
+#### Example Response
+```json
+{
+  "query": "Explain ROS 2 middleware concepts",
+  "results": [
+    {
+      "id": "chunk-123",
+      "content": "ROS 2 uses a DDS-based middleware that provides...",
+      "score": 0.92,
+      "metadata": {
+        "url": "http://localhost:3002/docs/chapter-1/middleware-concept",
+        "chunk_id": "middleware-intro-001",
+        "source_title": "Chapter 1: ROS 2 as Middleware"
+      }
+    },
+    {
+      "id": "chunk-456",
+      "content": "The middleware layer in ROS 2 handles communication...",
+      "score": 0.87,
+      "metadata": {
+        "url": "http://localhost:3002/docs/chapter-2/nodes-topics-services",
+        "chunk_id": "middleware-impl-002",
+        "source_title": "Chapter 2: Communication Primitives"
+      }
+    }
+  ],
+  "query_time_ms": 125.3,
+  "total_chunks_searched": 150
+}
+```
+
+### GET /retrieval/health
+Check the health status of the retrieval service.
+
+#### Response
+```json
+{
+  "status": "string, service status (healthy, degraded, unavailable)",
+  "qdrant_connected": "boolean, whether Qdrant connection is active",
+  "cohere_connected": "boolean, whether Cohere API connection is active",
+  "last_heartbeat": "string, ISO timestamp of last successful operation"
+}
+```
+
+### POST /retrieval/validate
+Validate that the retrieval pipeline is working correctly by running a test query against known content.
+
+#### Request
+```json
+{
+  "test_query": "string, a known query to test retrieval accuracy",
+  "expected_urls": "array of strings, expected source URLs for validation",
+  "threshold": "float, minimum accuracy threshold (default: 0.9)"
+}
+```
+
+#### Response
+```json
+{
+  "success": "boolean, whether validation passed",
+  "accuracy": "float, accuracy score between 0.0 and 1.0",
+  "retrieved_urls": "array of strings, URLs of retrieved content",
+  "matches_expected": "boolean, whether retrieved content matches expected",
+  "details": {
+    "top_match_accuracy": "float, accuracy of top match",
+    "content_similarity": "float, content similarity score",
+    "metadata_correctness": "float, metadata validation score"
+  }
+}
+```
+
+## Data Types
+
+### QueryRequest
+- `query`: string (required) - Text to search for
+- `top_k`: integer (optional, default: 5) - Number of results to return
+- `min_score`: float (optional, default: 0.5) - Minimum similarity threshold
+
+### RetrievalResult
+- `id`: string (required) - Unique chunk identifier
+- `content`: string (required) - Retrieved text content
+- `score`: float (required) - Similarity score (0.0-1.0)
+- `metadata`: object (required) - Metadata about the source
+
+### Metadata
+- `url`: string (required) - Source document URL
+- `chunk_id`: string (required) - Unique chunk identifier
+- `source_title`: string (optional) - Document title
+
+## Error Format
+All error responses follow this format:
+```json
+{
+  "error": {
+    "type": "string, error type identifier",
+    "message": "string, human-readable error message",
+    "details": "object, optional additional error details"
+  }
+}
+```
+
+## Performance Requirements
+- Query response time: <200ms for 95% of requests
+- End-to-end retrieval: <2 seconds for 95% of requests
+- Support for 100 concurrent requests
+- 99.9% uptime for health checks

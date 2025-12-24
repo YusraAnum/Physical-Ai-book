@@ -1,0 +1,297 @@
+.chat-window {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 400px;
+  height: 600px;
+  border: 1px solid var(--ifm-color-emphasis-300, #ddd);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  background: var(--ifm-background-surface-color, white);
+  z-index: 1000;
+  font-family: var(--ifm-font-family-base);
+  color: var(--ifm-color-emphasis-900);
+}
+
+.chat-header {
+  padding: 16px;
+  background: var(--ifm-color-primary, #4a6cf7);
+  color: var(--ifm-color-white, white);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: var(--ifm-color-white, white);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--ifm-color-emphasis-100, #f9f9f9);
+}
+
+.welcome-message {
+  text-align: center;
+  color: var(--ifm-color-emphasis-600, #666);
+  font-style: italic;
+  margin: 20px 0;
+}
+
+.welcome-message p {
+  margin: 8px 0;
+}
+
+.message {
+  max-width: 80%;
+  padding: 12px;
+  border-radius: 18px;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message.user {
+  align-self: flex-end;
+  background: var(--ifm-color-primary, #4a6cf7);
+  color: var(--ifm-color-white, white);
+  border-bottom-right-radius: 4px;
+}
+
+.message.assistant {
+  align-self: flex-start;
+  background: var(--ifm-background-surface-color, white);
+  border: 1px solid var(--ifm-color-emphasis-300, #e0e0e0);
+  border-bottom-left-radius: 4px;
+}
+
+.message-content {
+  margin-bottom: 4px;
+}
+
+.message-content p {
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.sources {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--ifm-color-emphasis-300, #eee);
+}
+
+.sources summary {
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--ifm-color-emphasis-600, #666);
+  margin-bottom: 4px;
+}
+
+.sources ul {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 12px;
+  color: var(--ifm-color-emphasis-600, #666);
+}
+
+.sources li {
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.error-indicator {
+  color: var(--ifm-color-danger, #d32f2f);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.empty-indicator {
+  color: var(--ifm-color-emphasis-600, #666);
+  font-size: 12px;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+.timestamp {
+  font-size: 10px;
+  color: var(--ifm-color-emphasis-500, #999);
+  display: block;
+  text-align: right;
+  margin-top: 4px;
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background: var(--ifm-color-emphasis-400, #ccc);
+  border-radius: 50%;
+  display: inline-block;
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes typing {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.error-message {
+  background: var(--ifm-color-danger-lightest, #ffebee);
+  color: var(--ifm-color-danger-dark, #c62828);
+  padding: 8px 16px;
+  font-size: 12px;
+  border-top: 1px solid var(--ifm-color-danger-lighter, #ffcdd2);
+  text-align: center;
+}
+
+.chat-input-area {
+  padding: 16px;
+  border-top: 1px solid var(--ifm-color-emphasis-300, #eee);
+  background: var(--ifm-background-surface-color, white);
+}
+
+.context-preview {
+  background: var(--ifm-color-info-lightest, #e3f2fd);
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.remove-context {
+  background: none;
+  border: none;
+  color: var(--ifm-color-info-dark, #1976d2);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-context:hover {
+  background: var(--ifm-color-info-contrast-background, rgba(25, 118, 210, 0.1));
+  border-radius: 50%;
+}
+
+.input-form {
+  margin: 0;
+}
+
+.input-container {
+  display: flex;
+  gap: 8px;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid var(--ifm-color-emphasis-300, #ddd);
+  border-radius: var(--ifm-global-radius, 4px);
+  font-size: 14px;
+  background-color: var(--ifm-color-white, white);
+  color: var(--ifm-color-emphasis-900, #111);
+}
+
+.input-container input:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary, #4a6cf7);
+  box-shadow: 0 0 0 2px var(--ifm-color-primary-lighter, rgba(74, 108, 247, 0.2));
+}
+
+.input-container button {
+  padding: 12px 16px;
+  background: var(--ifm-color-primary, #4a6cf7);
+  color: var(--ifm-color-white, white);
+  border: none;
+  border-radius: var(--ifm-global-radius, 4px);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.input-container button:disabled {
+  background: var(--ifm-color-emphasis-300, #ccc);
+  cursor: not-allowed;
+}
+
+.input-container button:not(:disabled):hover {
+  background: var(--ifm-color-primary-dark, #3a5ce5);
+}
+
+.chat-toggle-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary, #4a6cf7);
+  color: var(--ifm-color-white, white);
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

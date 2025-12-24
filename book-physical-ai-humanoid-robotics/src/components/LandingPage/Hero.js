@@ -25,7 +25,7 @@ const Hero = () => {
           <div className="col col--6 text--center">
             <div className="hero__image-container position-relative">
               <img
-                src="/img/humanoid-robot-tablet.png"
+                src="/img/heroimg.webp"
                 alt="Humanoid robot holding a holographic tablet"
                 className="hero__image robot-float"
                 style={{ maxWidth: '100%', height: 'auto' }}
