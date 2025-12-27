@@ -11,7 +11,7 @@ class AgentResponse(BaseModel):
     query_id: str = Field(..., description="Reference to the original query")
     answer: str = Field(..., description="The generated answer text")
     source_chunks: Optional[List[RetrievedChunk]] = Field(None, description="List of chunks that informed the response")
-    confidence_level: Optional[float] = Field(None, description="Confidence score for the response (0.0 to 1.0)", ge=0.0, le=1.0)
+    confidence_level: Optional[float] = Field(None, description="Confidence score for the response (-1.0 to 1.0)", ge=-1.0, le=1.0)
     timestamp: datetime = Field(default_factory=datetime.now, description="When the response was generated")
     has_sources: bool = Field(..., description="Whether the response was generated from retrieved sources")
 
@@ -22,7 +22,7 @@ class SourceChunk(BaseModel):
     chunk_id: str = Field(..., description="Unique identifier for the document chunk")
     content: str = Field(..., description="The text content of the retrieved chunk")
     document_id: str = Field(..., description="Identifier of the source document")
-    similarity_score: float = Field(..., description="Similarity score from vector search (0.0 to 1.0)", ge=0.0, le=1.0)
+    similarity_score: float = Field(..., description="Similarity score from vector search (-1.0 to 1.0)", ge=-1.0, le=1.0)
     metadata: Optional[dict] = Field(None, description="Additional metadata about the chunk")
 
 
