@@ -1,0 +1,36 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+.pytest_cache/
+*.egg-info/
+.eggs/
+*.egg
+
+# Node
+node_modules/
+.DS_Store
+build/
+.docusaurus/
+.cache/
+
+# IDE
+.vscode/
+.idea/
+
+# Other
+nul
+
+# Qdrant storage
+qdrant_storage/
