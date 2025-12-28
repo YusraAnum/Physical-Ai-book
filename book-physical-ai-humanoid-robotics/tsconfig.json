@@ -3,15 +3,11 @@
   // Docusaurus handles its own compilation process
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@site/*": ["./*"],
-
-      
-      "@components/*": ["src/components/*"],
-      "@theme/*": ["src/theme/*"],
-      
-
+      "@site/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@theme/*": ["./src/theme/*"]
     },
     // Additional options for better editor experience
     "allowJs": true,
@@ -24,7 +20,8 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "ignoreDeprecations": "6.0"
   },
   "exclude": [".docusaurus", "build"]
 }
