@@ -11,7 +11,7 @@ const baseUrl = process.env.BASE_URL || (isVercel ? '/' : isLocalhost ? '/' : '/
 
 // Determine URL based on deployment platform
 const url = isVercel
-  ? process.env.URL || 'https://your-project-name.vercel.app'
+  ? process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://book-physical-ai-humanoid-robotics-ten.vercel.app'
   : 'https://YusraAnum.github.io';
 
 const config: Config = {
