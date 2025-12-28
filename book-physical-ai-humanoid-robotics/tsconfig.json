@@ -3,12 +3,15 @@
   // Docusaurus handles its own compilation process
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
       "@site/*": ["./*"],
+
+      
       "@components/*": ["src/components/*"],
       "@theme/*": ["src/theme/*"],
       
+
     },
     // Additional options for better editor experience
     "allowJs": true,

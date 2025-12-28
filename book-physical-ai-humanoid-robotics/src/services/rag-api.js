@@ -20,7 +20,7 @@ const RAG_API_BASE_URL =
  */
 const submitQuery = async (queryData) => {
   try {
-    const response = await fetch(`${RAG_API_BASE_URL}/api/rag/query`, {
+    const response = await fetch(`${RAG_API_BASE_URL}/api/v1/rag/query`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const submitQuery = async (queryData) => {
  */
 const checkHealth = async () => {
   try {
-    const response = await fetch(`${RAG_API_BASE_URL}/api/rag/health`);
+    const response = await fetch(`${RAG_API_BASE_URL}/api/v1/rag/health`);
 
     if (!response.ok) {
       throw new Error(`Health check failed with status: ${response.status}`);
