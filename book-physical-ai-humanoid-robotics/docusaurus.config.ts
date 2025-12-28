@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 // Determine base URL based on environment
-const isVercel = process.env.DEPLOYMENT_PLATFORM === 'vercel' || process.env.VERCEL === '1';
+const isVercel = process.env.VERCEL === '1' || process.env.VERCEL_ENV !== undefined;
 const isLocalhost = !isVercel && !process.env.DEPLOYMENT_PLATFORM;
 const baseUrl = process.env.BASE_URL || (isVercel ? '/' : isLocalhost ? '/' : '/Physical-Ai-book/');
 
